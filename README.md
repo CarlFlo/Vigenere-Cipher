@@ -21,4 +21,4 @@ program.exe enc="Text to encrypt 123 :)" key="This is the key 123"
 program.exe enc="alFLIBGIxug}ItRIqsur>"" key="This is the key 123"
 
 ## Custom alphabet
-program.exe enc="Example text to encrypt" key="Example Key" alp="abcdefgh..."
+program.exe alp="abcdefgh..." enc="Example text to encrypt" key="Example Key"
