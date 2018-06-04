@@ -17,9 +17,9 @@ The arguments can be in any order
 program.exe help
 
 ## Encrypt and decrypt
-> program.exe enc="Text to encrypt 123 :)" key="This is the key 123"
+program.exe enc="Text to encrypt 123 :)" key="This is the key 123"
 
-> program.exe enc="alFLIBGIxug}ItRIqsur>"" key="This is the key 123"
+program.exe enc="alFLIBGIxug}ItRIqsur>"" key="This is the key 123"
 
 ## Custom alphabet
-> program.exe alp="abcdefgh..." enc="Example text to encrypt" key="Example Key"
+program.exe alp="abcdefgh..." enc="Example text to encrypt" key="Example Key"
