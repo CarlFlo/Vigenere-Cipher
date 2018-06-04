@@ -6,7 +6,7 @@ Supports custom alphabets
 
 # How to use
 
-Use program in cmd with the text you want to encrypt/decrypt as well as key as arguments
+Use program in cmd with the text you want to encrypt/decrypt as well as the key as arguments
 
 
 # Commands
