@@ -18,6 +18,7 @@ program.exe help
 
 ## Encrypt and decrypt
 > program.exe enc="Text to encrypt 123 :)" key="This is the key 123"
+
 > program.exe enc="alFLIBGIxug}ItRIqsur>"" key="This is the key 123"
 
 ## Custom alphabet
