@@ -13,12 +13,12 @@ Use program in cmd with the text you want to encrypt/decrypt as well as key as a
 
 The arguments can be in any order
 
-// To display help
+## To display help
 program.exe help
 
-// Encrypt and decrypt
+## Encrypt and decrypt
 program.exe enc="Text to encrypt 123 :)" key="This is the key 123"
 program.exe enc="alFLIBGIxug}ItRIqsur>"" key="This is the key 123"
 
-// Custom alphabet
+## Custom alphabet
 program.exe enc="Example text to encrypt" key="Example Key" alp="abcdefgh..."
