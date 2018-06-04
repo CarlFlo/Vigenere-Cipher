@@ -67,12 +67,12 @@ key="The key used to encrypt"
 alp="abcdefghi..." if you want a custom alphabet
 
 Default supported chars: 
-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ?!:;.,-_<>*'|=+{}()[]&#@/%s"
+%s
 
 Example:
 %s enc="Text to encrypt 123 :)" key="DH23C dSa"
 %s dec="That to decrypt 123 :)" key="DH23C dSa"
-`, "%", os.Args[0], os.Args[0]))
+`, alphabet, os.Args[0], os.Args[0]))
 
 		os.Exit(3)
 	}
