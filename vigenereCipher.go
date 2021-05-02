@@ -15,7 +15,7 @@ func init() {
 
 // UpdateAlphabet will change the alphabet the chipher
 // uses for encryption and decryption.
-// The default is all upper and lowercase letters with numbers 0-9 and symbols
+// The default alphabet is: a-zA-Z0-9 with the addition of a few symbols
 //
 // Example input: "abcABC123"
 func UpdateAlphabet(newAlphabet string) {
