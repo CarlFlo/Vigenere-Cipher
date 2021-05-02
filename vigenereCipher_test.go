@@ -60,6 +60,22 @@ func TestDecryptFail(t *testing.T) {
 	}
 }
 
+func TestInvalidKey(t *testing.T) {
+
+	input := "inputinputinput"
+	key := "åäö"
+
+	_, err := Encrypt(input, key)
+	if err == nil {
+		t.Fatalf("Encryption should have failed because of the key should have failed")
+	}
+
+	_, err = Decrypt(input, key)
+	if err == nil {
+		t.Fatalf("Decryption should have failed because of the key should have failed")
+	}
+}
+
 func TestCustomAlphabet(t *testing.T) {
 
 	UpdateAlphabet("ABC123ghj")
@@ -86,5 +102,4 @@ func TestCustomAlphabet(t *testing.T) {
 	if output != input {
 		t.Fatalf("Decryption: Got '%s' expected '%s'", output, input)
 	}
-
 }

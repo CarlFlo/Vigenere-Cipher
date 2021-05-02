@@ -4,7 +4,7 @@ My implementation of the [Vigenere Cipher](https://en.wikipedia.org/wiki/Vigen%C
 
 This solution should obviously not be used to protect any real data.
 
-Test coverage: **90.9%**
+Test coverage: **100.0%**
 
 ## Features
 
