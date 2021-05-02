@@ -16,6 +16,7 @@ func init() {
 // UpdateAlphabet will change the alphabet the chipher
 // uses for encryption and decryption.
 // The default is all upper and lowercase letters with numbers 0-9 and symbols
+//
 // Example input: "abcABC123"
 func UpdateAlphabet(newAlphabet string) {
 	alphabet = newAlphabet
@@ -79,12 +80,13 @@ func Decrypt(enc, key string) (string, error) {
 
 func getKeyPos(key string, i int) (int, error) {
 
-	keyPos, ok := alphabetMap[string(key[i%len(key)])]
+	char := string(key[i%len(key)])
+	keyPos, ok := alphabetMap[char]
 
 	if ok {
 		return keyPos, nil
 	}
-	return -1, fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
+	return -1, fmt.Errorf("invalid key character entered! %v", char)
 }
 
 func prepareAlphabet() {
