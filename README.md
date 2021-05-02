@@ -2,7 +2,7 @@
 
 My implementation of the [Vigenere Cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) in [GO](https://golang.org/).
 
-Test coverage: **83.9%**
+Test coverage: **93.5%**
 
 ## Features
 

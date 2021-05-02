@@ -60,3 +60,32 @@ func TestDecryptFail(t *testing.T) {
 	}
 
 }
+
+func TestCustomAlphabet(t *testing.T) {
+
+	UpdateAlphabet("ABC123ghj")
+	input := "123"
+	key := "A3h"
+	expectedOutput := "1A1"
+
+	output, err := Encrypt(input, key)
+
+	if err != nil {
+		t.Fatalf("Encryption failed %v", err)
+	}
+
+	if output != expectedOutput {
+		t.Fatalf("Encryption: Got '%s' expected '%s'", output, expectedOutput)
+	}
+
+	output, err = Decrypt(output, key)
+
+	if err != nil {
+		t.Fatalf("Decryption failed %v", err)
+	}
+
+	if output != input {
+		t.Fatalf("Decryption: Got '%s' expected '%s'", output, input)
+	}
+
+}

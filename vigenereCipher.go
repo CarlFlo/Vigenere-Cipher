@@ -37,7 +37,7 @@ func Encrypt(text, key string) (string, error) {
 			if _keyPos, _ok := alphabetMap[string(key[i%len(key)])]; _ok {
 				keyPos = _keyPos
 			} else {
-				return "", fmt.Errorf("Invalid key character entered! %v", string(string(key[i%len(key)])))
+				return "", fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
 			}
 
 			x := (numPos + keyPos) % len(alphabet)
@@ -45,7 +45,7 @@ func Encrypt(text, key string) (string, error) {
 			enc += string(alphabet[x])
 
 		} else {
-			return "", fmt.Errorf("Invalid plaintext character entered! %v", string(text[i]))
+			return "", fmt.Errorf("invalid plaintext character entered! %v", string(text[i]))
 		}
 	}
 
@@ -63,7 +63,7 @@ func Decrypt(enc, key string) (string, error) {
 			if _keyPos, _ok := alphabetMap[string(key[i%len(key)])]; _ok {
 				keyPos = _keyPos
 			} else {
-				return "", fmt.Errorf("Invalid key character entered! %v", string(string(key[i%len(key)])))
+				return "", fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
 			}
 
 			val := (numPos - keyPos)
@@ -77,7 +77,7 @@ func Decrypt(enc, key string) (string, error) {
 			dec += string(alphabet[x])
 
 		} else {
-			return "", fmt.Errorf("Invalid plaintext character entered! %v", string(enc[i]))
+			return "", fmt.Errorf("invalid plaintext character entered! %v", string(enc[i]))
 		}
 	}
 
