@@ -10,13 +10,16 @@ var (
 )
 
 func init() {
-	mapAlphabet()
+	prepareAlphabet()
 }
 
-// UpdateAlphabet will change the alphabet the code uses
+// UpdateAlphabet will change the alphabet the chipher
+// uses for encryption and decryption.
+// The default is all upper and lowercase letters with numbers 0-9 and symbols
+// Example input: "abcABC123"
 func UpdateAlphabet(newAlphabet string) {
 	alphabet = newAlphabet
-	mapAlphabet()
+	prepareAlphabet()
 }
 
 // Encrypt encrypts a message with the provided key
@@ -84,7 +87,7 @@ func getKeyPos(key string, i int) (int, error) {
 	return -1, fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
 }
 
-func mapAlphabet() {
+func prepareAlphabet() {
 	alphabetMap = make(map[string]int)
 	for i := 0; i < len(alphabet); i++ {
 		alphabetMap[string(alphabet[i])] = i
