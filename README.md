@@ -7,12 +7,12 @@ Test coverage: **83.9%**
 ## Features
 
 - Encryption and decryption
-- Custom alphabets
+- Supports custom alphabets
 
 ## Install
 
 ```
-go get github.com/CarlFlo/bord
+go get github.com/CarlFlo/vigenereCipher
 ```
 
 ## How to use
