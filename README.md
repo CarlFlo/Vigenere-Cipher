@@ -1,10 +1,19 @@
 # Vigenere Cipher
 
-Supports lowercase, uppercase, numbers and spaces as well as some symbols.
-
-Supports custom alphabets
+My implementation of the [Vigenere Cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) in [GO](https://golang.org/).
 
 Test coverage: **83.9%**
+
+## Features
+
+- Encryption and decryption
+- Custom alphabets
+
+## Install
+
+```
+go get github.com/CarlFlo/bord
+```
 
 ## How to use
 
