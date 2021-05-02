@@ -58,7 +58,6 @@ func TestDecryptFail(t *testing.T) {
 	if err == nil {
 		t.Fatalf("Decryption should have failed")
 	}
-
 }
 
 func TestCustomAlphabet(t *testing.T) {

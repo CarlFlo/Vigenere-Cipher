@@ -19,13 +19,6 @@ func UpdateAlphabet(newAlphabet string) {
 	mapAlphabet()
 }
 
-func mapAlphabet() {
-	alphabetMap = make(map[string]int)
-	for i := 0; i < len(alphabet); i++ {
-		alphabetMap[string(alphabet[i])] = i
-	}
-}
-
 // Encrypt encrypts a message with the provided key
 func Encrypt(text, key string) (string, error) {
 
@@ -33,11 +26,10 @@ func Encrypt(text, key string) (string, error) {
 
 	for i := 0; i < len(text); i++ {
 		if numPos, ok := alphabetMap[string(text[i])]; ok {
-			var keyPos int
-			if _keyPos, _ok := alphabetMap[string(key[i%len(key)])]; _ok {
-				keyPos = _keyPos
-			} else {
-				return "", fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
+
+			keyPos, err := getKeyPos(key, i)
+			if err != nil {
+				return "", err
 			}
 
 			x := (numPos + keyPos) % len(alphabet)
@@ -59,11 +51,9 @@ func Decrypt(enc, key string) (string, error) {
 
 	for i := 0; i < len(enc); i++ {
 		if numPos, ok := alphabetMap[string(enc[i])]; ok {
-			var keyPos int
-			if _keyPos, _ok := alphabetMap[string(key[i%len(key)])]; _ok {
-				keyPos = _keyPos
-			} else {
-				return "", fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
+			keyPos, err := getKeyPos(key, i)
+			if err != nil {
+				return "", err
 			}
 
 			val := (numPos - keyPos)
@@ -82,4 +72,21 @@ func Decrypt(enc, key string) (string, error) {
 	}
 
 	return dec, nil
+}
+
+func getKeyPos(key string, i int) (int, error) {
+
+	keyPos, ok := alphabetMap[string(key[i%len(key)])]
+
+	if ok {
+		return keyPos, nil
+	}
+	return -1, fmt.Errorf("invalid key character entered! %v", string(string(key[i%len(key)])))
+}
+
+func mapAlphabet() {
+	alphabetMap = make(map[string]int)
+	for i := 0; i < len(alphabet); i++ {
+		alphabetMap[string(alphabet[i])] = i
+	}
 }
