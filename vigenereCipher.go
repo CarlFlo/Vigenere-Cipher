@@ -1,6 +1,7 @@
 package vigenereCipher
 
 import (
+	"bytes"
 	"fmt"
 )
 
@@ -15,7 +16,7 @@ func init() {
 
 // UpdateAlphabet will change the alphabet the chipher
 // uses for encryption and decryption.
-// The default alphabet is: a-zA-Z0-9 with the addition of a few symbols
+// The default alphabet is: a-zA-Z0-9 with the addition of a few symbols.
 //
 // Example input: "abcABC123"
 func UpdateAlphabet(newAlphabet string) {
@@ -23,10 +24,10 @@ func UpdateAlphabet(newAlphabet string) {
 	prepareAlphabet()
 }
 
-// Encrypt encrypts a message with the provided key
+// Encrypt encrypts a message with the provided key.
 func Encrypt(text, key string) (string, error) {
 
-	var enc string
+	var buffer bytes.Buffer
 
 	for i := 0; i < len(text); i++ {
 		if numPos, ok := alphabetMap[string(text[i])]; ok {
@@ -38,20 +39,20 @@ func Encrypt(text, key string) (string, error) {
 
 			x := (numPos + keyPos) % len(alphabet)
 
-			enc += string(alphabet[x])
+			buffer.WriteByte(alphabet[x])
 
 		} else {
 			return "", fmt.Errorf("invalid plaintext character entered! %v", string(text[i]))
 		}
 	}
 
-	return enc, nil
+	return buffer.String(), nil
 }
 
-// Decrypt decrypts a message with the provided key
+// Decrypt decrypts a message with the provided key.
 func Decrypt(enc, key string) (string, error) {
 
-	var dec string
+	var buffer bytes.Buffer
 
 	for i := 0; i < len(enc); i++ {
 		if numPos, ok := alphabetMap[string(enc[i])]; ok {
@@ -68,14 +69,14 @@ func Decrypt(enc, key string) (string, error) {
 				x = len(alphabet) + val
 			}
 
-			dec += string(alphabet[x])
+			buffer.WriteByte(alphabet[x])
 
 		} else {
 			return "", fmt.Errorf("invalid plaintext character entered! %v", string(enc[i]))
 		}
 	}
 
-	return dec, nil
+	return buffer.String(), nil
 }
 
 func getKeyPos(key string, i int) (int, error) {
