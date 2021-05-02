@@ -8,7 +8,7 @@ Test coverage: **100.0%**
 
 ## Features
 
-- Encryption and decryption
+- Encryption and decryption with [polyalphabetic substitution](https://en.wikipedia.org/wiki/Polyalphabetic_cipher)
 - Supports custom alphabets
 
 ## Install
@@ -29,8 +29,9 @@ output, err := vigenereCipher.Decrypt("Message_to_decrypt", "Key")
 
 ## Options
 
-You're able to change the alphabet like this
+You're able to change the alphabet like this:
 
 ```go
+// This is the default alphabet
 vigenereCipher.UpdateAlphabet("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ?!:;.,-_<>*'|=+{}()[]&#@/%\"")
 ```
