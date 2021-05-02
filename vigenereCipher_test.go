@@ -19,9 +19,10 @@ func TestEncrypt(t *testing.T) {
 	}
 }
 
-func TestEncryptFail(t *testing.T) {
+func TestInvalidInput(t *testing.T) {
 
-	input := "ääääääää"
+	// This character 'ä' is not in the default alphabet
+	input := "ä"
 	key := "key"
 
 	_, err := Encrypt(input, key)
@@ -50,7 +51,7 @@ func TestDecrypt(t *testing.T) {
 
 func TestDecryptFail(t *testing.T) {
 
-	input := "ääääääää"
+	input := "ä"
 	key := "key"
 
 	_, err := Decrypt(input, key)
@@ -67,12 +68,12 @@ func TestInvalidKey(t *testing.T) {
 
 	_, err := Encrypt(input, key)
 	if err == nil {
-		t.Fatalf("Encryption should have failed because of the key should have failed")
+		t.Fatalf("Encryption should have failed because of the key")
 	}
 
 	_, err = Decrypt(input, key)
 	if err == nil {
-		t.Fatalf("Decryption should have failed because of the key should have failed")
+		t.Fatalf("Decryption should have failed because of the key")
 	}
 }
 
