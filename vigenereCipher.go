@@ -10,11 +10,23 @@ var (
 )
 
 func init() {
+	mapAlphabet()
+}
+
+// UpdateAlphabet will change the alphabet the code uses
+func UpdateAlphabet(newAlphabet string) {
+	alphabet = newAlphabet
+	mapAlphabet()
+}
+
+func mapAlphabet() {
+	alphabetMap = make(map[string]int)
 	for i := 0; i < len(alphabet); i++ {
 		alphabetMap[string(alphabet[i])] = i
 	}
 }
 
+// Encrypt encrypts a message with the provided key
 func Encrypt(text, key string) (string, error) {
 
 	var enc string
@@ -40,6 +52,7 @@ func Encrypt(text, key string) (string, error) {
 	return enc, nil
 }
 
+// Decrypt decrypts a message with the provided key
 func Decrypt(enc, key string) (string, error) {
 
 	var dec string
